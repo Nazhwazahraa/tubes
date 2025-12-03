@@ -1,11 +1,12 @@
+#include "func.h"
 #include <stdio.h>
+
 int main(){
-    printf("hi");
-    printf("hiihhihih");
-    printf("hiihhihih");
-    printf("hiihhihih");
-    // aepppppp
-    // iwannn
-    printf("tubes anjg");
-    printf("tubes anjg");
+    char role[20];
+    if(login(role)){
+        menuUtama(role);
+    } else {
+        printf("Login gagal\n");
+    }
+    return 0;
 }
