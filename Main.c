@@ -6,4 +6,6 @@ int main(){
     printf("hiihhihih");
     // aepppppp
     // iwannn
+    printf("tubes anjg");
+    printf("tubes anjg");
 }
