@@ -7,39 +7,6 @@
 #include "searching.h"
 #include "statistik.h"
 
-void tampilMenu() {
-    int pilihan;
-    char role[20];
-
-    do {
-        printf("\n=================================================\n");
-        printf("                  SELAMAT DATANG                 \n");
-        printf("=================================================\n");
-        printf("|  Silakan pilih menu:                           |\n");
-        printf("|                                                 |\n");
-        printf("|   [1] Login                                     |\n");
-        printf("|   [0] Keluar                                    |\n");
-        printf("|                                                 |\n");
-        printf("=================================================\n");
-        printf("Masukkan pilihan Anda : ");
-        scanf("%d", &pilihan);
-
-        switch(pilihan) {
-            case 1:
-                if(login(role)) {
-                    menuUtama(role);
-                }
-                break;
-            case 0:
-                printf("\nTerima kasih sudah menggunakan program!\n");
-                return;
-            default:
-                printf("\n!! Pilihan tidak tersedia, coba lagi.\n");
-        }
-
-    } while (pilihan != 0);
-}
-
 
 int login(char role[]){
     char u[50], p[50];
@@ -346,4 +313,37 @@ void menuUtama(char role[]) {
 
     } while( (strcmp(role,"admin")==0 && pil!=8) ||
              (strcmp(role,"user")==0  && pil!=4) );
+}
+
+void tampilMenu() {
+    int pilihan;
+    char role[20];
+
+    do {
+        printf("\n=================================================\n");
+        printf("                  SELAMAT DATANG                 \n");
+        printf("=================================================\n");
+        printf("|  Silakan pilih menu:                           |\n");
+        printf("|                                                 |\n");
+        printf("|   [1] Login                                     |\n");
+        printf("|   [0] Keluar                                    |\n");
+        printf("|                                                 |\n");
+        printf("=================================================\n");
+        printf("Masukkan pilihan Anda : ");
+        scanf("%d", &pilihan);
+
+        switch(pilihan) {
+            case 1:
+                if(login(role)) {
+                    menuUtama(role);
+                }
+                break;
+            case 0:
+                printf("\nTerima kasih sudah menggunakan program!\n");
+                return;
+            default:
+                printf("\n!! Pilihan tidak tersedia, coba lagi.\n");
+        }
+
+    } while (pilihan != 0);
 }
