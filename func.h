@@ -1,6 +1,7 @@
 #ifndef FUNC_H
 #define FUNC_H
 
+void tampilMenu();
 void menuUtama(char role[]);
 int login(char role[]);
 void tampilData();
