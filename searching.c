@@ -1,7 +1,11 @@
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "searching.h"
 #include "struct.h"
+#include "func.h"
+#include "shorting.h"
+#include "searching.h"
+#include "statistik.h"
 
 int cariKasusBinary(int key) {
     int low = 0;
@@ -46,4 +50,3 @@ void hasilCariKasus(int found, int key) {
     }
 }
 
-#endif

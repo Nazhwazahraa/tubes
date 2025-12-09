@@ -1,7 +1,11 @@
-#ifndef SORTING_H
-#define SORTING_H
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "struct.h"
+#include "func.h"
+#include "shorting.h"
+#include "searching.h"
+#include "statistik.h"
 
 void sortTanggalAsc() {
     for (int i = 0; i < jumlahKasus - 1; i++) {
@@ -27,7 +31,6 @@ void sortTanggalAsc() {
     }
 }
 
-
 void sortTanggalDesc() {
     for (int i = 0; i < jumlahKasus - 1; i++) {
         for (int j = 0; j < jumlahKasus - i - 1; j++) {
@@ -51,5 +54,3 @@ void sortTanggalDesc() {
         }
     }
 }
-
-#endif

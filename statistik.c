@@ -1,7 +1,11 @@
-#ifndef STAT_H 
-#define STAT_H
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "struct.h"
+#include "func.h"
+#include "shorting.h"
+#include "searching.h"
+#include "statistik.h"
 
 void statistik() {
     int solved = 0, unsolved = 0;
@@ -27,6 +31,3 @@ void statistik() {
     printf("║ Kesulitan Terendah       : %-10d║\n", min);
     printf("╚══════════════════════════════════════╝\n");
 }
-
-
-#endif

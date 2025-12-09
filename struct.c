@@ -1,5 +1,11 @@
-#ifndef DATA_H
-#define DATA_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "struct.h"
+#include "func.h"
+#include "shorting.h"
+#include "searching.h"
+#include "statistik.h"
 
 struct kasus {
     int idKasus;
@@ -52,4 +58,3 @@ struct user users[4] = {
     {"user2", "22222", "user"}
 };
 
-#endif
