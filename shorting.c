@@ -6,6 +6,7 @@
 #include "shorting.h"
 #include "searching.h"
 #include "statistik.h"
+#include <windows.h>
 
 void sortTanggalAsc() {
     for (int i = 0; i < jumlahKasus - 1; i++) {
