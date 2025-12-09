@@ -8,38 +8,29 @@
 #include "statistik.h"
 
 
-int login(char role[]){
+int login(char role[]) {
     char u[50], p[50];
 
     printf("+======================================+\n");
-    printf("|               LOGIN                  |\n");
+    printf("|                LOGIN                 |\n");
     printf("+======================================+\n");
-    printf("| Username:                            |\n");
+    printf("Username: ");
     scanf("%s", u);
-    printf("| Password:                            |\n");
+    printf("Password: ");
     scanf("%s", p);
     printf("+======================================+\n");
 
-        for (int i = 0; i < 4; i++) {
-            if (strcmp(u, adm[i].username) == 0 && strcmp(p, adm[i].password) == 0) {
+    for (int i = 0; i < 8; i++) {
+        if (strcmp(u, adm[i].username) == 0 &&
+            strcmp(p, adm[i].password) == 0) {
 
-                strcpy(role, adm[i].role);
-                printf("\n>> Login berhasil! Selamat datang %s.\n");
-                return 1;
-            }
+            strcpy(role, adm[i].role);
+            printf("\n>> Login berhasil! Selamat datang %s.\n", adm[i].username);
+            return 1;
         }
+    }
 
-        for (int i = 0; i < 4; i++) {
-            if (strcmp(u, users[i].username) == 0 && strcmp(p, users[i].password) == 0) {
-
-                strcpy(role, users[i].role);
-                printf("\n>> Login berhasil! Selamat datang %s.\n");
-                return 1;
-            }
-        }
-
-        printf("\n!! Username atau password salah.\n");
-
+    printf("\n!! Username atau password salah.\n");
     return 0;
 }
 
@@ -320,16 +311,16 @@ void tampilMenu() {
     char role[20];
 
     do {
-        printf("\n=================================================\n");
-        printf("                  SELAMAT DATANG                 \n");
-        printf("=================================================\n");
-        printf("|  Silakan pilih menu:                           |\n");
+        printf("\n+=================================================+\n");
+        printf("|                  SELAMAT DATANG                 |\n");
+        printf("+=================================================+\n");
+        printf("|  Silakan pilih menu:                            |\n");
         printf("|                                                 |\n");
         printf("|   [1] Login                                     |\n");
         printf("|   [0] Keluar                                    |\n");
         printf("|                                                 |\n");
-        printf("=================================================\n");
-        printf("Masukkan pilihan Anda : ");
+        printf("+=================================================+\n");
+        printf("\nMasukkan pilihan Anda : \n");
         scanf("%d", &pilihan);
 
         switch(pilihan) {
