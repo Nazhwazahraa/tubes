@@ -6,6 +6,7 @@
 #include "shorting.h"
 #include "searching.h"
 #include "statistik.h"
+#include <windows.h>
 
 
 int login(char role[]) {

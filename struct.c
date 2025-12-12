@@ -6,6 +6,7 @@
 #include "shorting.h"
 #include "searching.h"
 #include "statistik.h"
+#include <windows.h>
 
 struct kasus daftarKasus[100] = {
     {1, "Bom Bali 2002", "Terpecahkan", 3, 12, 10, 2002},
