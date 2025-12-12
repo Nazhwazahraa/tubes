@@ -9,25 +9,35 @@
 
 void statistik() {
     int solved = 0, unsolved = 0;
-    int max = 0, min = 10;
+    int rendah = 0, sedang = 0, tinggi = 0;
 
     for(int i = 0; i < jumlahKasus; i++){
+        
         if(strcmp(daftarKasus[i].status, "Terpecahkan") == 0)
             solved++;
         else
             unsolved++;
 
-        if(daftarKasus[i].tingkat > max) max = daftarKasus[i].tingkat;
-        if(daftarKasus[i].tingkat < min) min = daftarKasus[i].tingkat;
+        if(daftarKasus[i].tingkat == 1)
+            rendah++;
+        else if(daftarKasus[i].tingkat == 2)
+            sedang++;
+        else if(daftarKasus[i].tingkat == 3)
+            tinggi++;
     }
 
-    printf("\n╔══════════════════════════════════════╗\n");
-    printf("║              STATISTIK               ║\n");
-    printf("╠══════════════════════════════════════╣\n");
-    printf("║ Total Kasus              : %-10d║\n", jumlahKasus);
-    printf("║ Kasus Terpecahkan        : %-10d║\n", solved);
-    printf("║ Kasus Belum Terpecahkan  : %-10d║\n", unsolved);
-    printf("║ Kesulitan Tertinggi      : %-10d║\n", max);
-    printf("║ Kesulitan Terendah       : %-10d║\n", min);
-    printf("╚══════════════════════════════════════╝\n");
+    printf("\n+========================================+\n");
+    printf("|                 STATISTIK                |\n");
+    printf("|==========================================+\n");
+    printf("| Total Kasus               : %-12d        |\n", jumlahKasus);
+    printf("|==========================================|\n");
+    printf("| STATUS KASUS                             |\n");
+    printf("| - Terpecahkan           : %-12d          |\n", solved);
+    printf("| - Belum Terpecahkan     : %-12d          |\n", unsolved);
+    printf("|==========================================|\n");
+    printf("| TINGKAT KESULITAN                        |\n");
+    printf("| - Rendah  (1)           : %-12d          |\n", rendah);
+    printf("| - Sedang  (2)           : %-12d          |\n", sedang);
+    printf("| - Tinggi  (3)           : %-12d          |\n", tinggi);
+    printf("+==========================================+\n");
 }

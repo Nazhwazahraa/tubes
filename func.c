@@ -34,20 +34,24 @@ int login(char role[]) {
     return 0;
 }
 
-void tampilData(){
-    printf("+=====================================================================+\n");
-    printf("| ID\t|        JUDUL\t\t|     STATUS\t\t| TINGKAT\t\t|   TANGGAL\t|\n");
-    printf("+=====================================================================+\n");
+void tampilData() {
+    printf("+================================================================================================+\n");
+    printf("| %-4s | %-30s | %-20s | %-8s | %-12s |\n",
+           "ID", "JUDUL", "STATUS", "TINGKAT", "TANGGAL");
+    printf("+================================================================================================+\n");
 
-    for(int i=0;i<jumlahKasus;i++){
-        printf(" %d.\t|  %s\t\t|   %s\t\t| (Tingkat %d)\t\t|   %d-%d-%d\t|\n",
+    for(int i = 0; i < jumlahKasus; i++){
+        printf("| %-4d | %-30s | %-20s | %-8d | %02d-%02d-%04d   |\n",
                daftarKasus[i].idKasus,
                daftarKasus[i].judul,
                daftarKasus[i].status,
                daftarKasus[i].tingkat,
-               daftarKasus[i].day, daftarKasus[i].month, daftarKasus[i].year);
+               daftarKasus[i].day,
+               daftarKasus[i].month,
+               daftarKasus[i].year);
     }
-    printf("+=====================================================================+\n");
+
+    printf("+================================================================================================+\n");
 }
 
 void tambahKasus(){
@@ -207,42 +211,77 @@ void deleteKasus(){
 
 void sortingMenu(){
     int pilihan;
-
-    printf("\n=========== SORTING KASUS ============+\n");
-    printf("|   Pilih metode sorting tanggal:       |\n");
-    printf("|---------------------------------------|\n");
-    printf("|  [1] Tanggal Ascending (lama → baru)  |\n");
-    printf("|  [2] Tanggal Descending (baru → lama) |\n");
-    printf("========================================+\n");
-    printf("Masukkan pilihan: ");
+    printf("\n============== MENU SORTING ==============\n");
+    printf("[1] Sort ID Ascending\n");
+    printf("[2] Sort ID Descending\n");
+    printf("[3] Sort Tanggal Ascending\n");
+    printf("[4] Sort Tanggal Descending\n");
+    printf("[5] Sort Tingkat Ascending\n");
+    printf("[6] Sort Tingkat Descending\n");
+    printf("==========================================\n");
+    printf("Masukkan pilihan : ");
     scanf("%d", &pilihan);
 
-    if (pilihan == 1)
-        sortTanggalAsc();
-    else if (pilihan == 2)
-        sortTanggalDesc();
-    else {
-        printf("Pilihan tidak valid!\n");
-        return;
+    switch(pilihan) {
+        case 1: sortIDAsc(); break;
+        case 2: sortIDDesc(); break;
+        case 3: sortTanggalAsc(); break;
+        case 4: sortTanggalDesc(); break;
+        case 5: sortTingkatAsc(); break;
+        case 6: sortTingkatDesc(); break;
+        default:
+            printf("Pilihan tidak valid!\n");
+            return;
     }
 
-    printf("\nData berhasil diurutkan!\n\n");
+    printf("\nData berhasil disorting!\n");
     tampilData();
 }
 
 void searchingMenu(){
-    int key;
-    printf("Masukkan ID Kasus: ");
-    scanf("%d", &key);
+    int pilih;
+    printf("\n========== MENU PENCARIAN ==========\n");
+    printf("[1] Cari berdasarkan ID\n");
+    printf("[2] Cari berdasarkan Status\n");
+    printf("[3] Cari berdasarkan Tingkat\n");
+    printf("====================================\n");
+    printf("Masukkan pilihan: ");
+    scanf("%d", &pilih);
 
-    int found = cariKasusBinary(key);
-    hasilCariKasus(found, key);
+    switch(pilih) {
+        case 1: {
+            int id;
+            printf("Masukkan ID: ");
+            scanf("%d", &id);
+            int found = cariKasusBinary(id);
+            hasilCariKasus(found, id);
+            break;
+        }
+
+        case 2: {
+            char status[50];
+            printf("Masukkan Status: ");
+            scanf(" %[^\n]", status);
+            cariKasusByStatus(status);
+            break;
+        }
+
+        case 3: {
+            int tingkat;
+            printf("Masukkan Tingkat: ");
+            scanf("%d", &tingkat);
+            cariKasusByTingkat(tingkat);
+            break;
+        }
+
+        default:
+            printf("Pilihan tidak valid!\n");
+    }
 }
 
 void statistikMenu(){
     statistik();
 }
-
 
 void menuUtama(char role[]) {
     int pil;
