@@ -6,7 +6,6 @@
 #include "shorting.h"
 #include "searching.h"
 #include "statistik.h"
-#include <windows.h>
 
 struct kasus daftarKasus[100] = {
     {1, "Bom Bali 2002", "Terpecahkan", 3, 12, 10, 2002},
@@ -28,7 +27,7 @@ struct kasus daftarKasus[100] = {
     {17, "Kasus Mutilasi Siti Amelia", "Terpecahkan", 3, 14, 8, 2025},
 };
 
-int jumlahKasus = 10;
+int jumlahKasus = 17;
 
 struct admin adm[8] = {
     {"detektif1", "12345", "admin"},

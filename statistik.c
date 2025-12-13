@@ -27,18 +27,18 @@ void statistik() {
             tinggi++;
     }
 
-    printf("\n+========================================+\n");
+    printf("\n+==========================================+\n");
     printf("|                 STATISTIK                |\n");
     printf("|==========================================+\n");
-    printf("| Total Kasus               : %-12d        |\n", jumlahKasus);
+    printf("| Total Kasus             : %-5d          |\n", jumlahKasus);
     printf("|==========================================|\n");
     printf("| STATUS KASUS                             |\n");
-    printf("| - Terpecahkan           : %-12d          |\n", solved);
-    printf("| - Belum Terpecahkan     : %-12d          |\n", unsolved);
+    printf("| - Terpecahkan           : %-5d          |\n", solved);
+    printf("| - Belum Terpecahkan     : %-5d          |\n", unsolved);
     printf("|==========================================|\n");
     printf("| TINGKAT KESULITAN                        |\n");
-    printf("| - Rendah  (1)           : %-12d          |\n", rendah);
-    printf("| - Sedang  (2)           : %-12d          |\n", sedang);
-    printf("| - Tinggi  (3)           : %-12d          |\n", tinggi);
+    printf("| - Rendah  (1)           : %-5d          |\n", rendah);
+    printf("| - Sedang  (2)           : %-5d          |\n", sedang);
+    printf("| - Tinggi  (3)           : %-5d          |\n", tinggi);
     printf("+==========================================+\n");
 }

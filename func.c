@@ -35,14 +35,15 @@ int login(char role[]) {
     return 0;
 }
 
-void tampilData() {
-    printf("+================================================================================================+\n");
-    printf("| %-4s | %-30s | %-20s | %-8s | %-12s |\n",
-           "ID", "JUDUL", "STATUS", "TINGKAT", "TANGGAL");
-    printf("+================================================================================================+\n");
+void tampilData()
+{
+    printf("+----+--------------------------------+----------------------+--------+------------+\n");
+    printf("| ID | JUDUL                          | STATUS               | TINGKAT| TANGGAL    |\n");
+    printf("+----+--------------------------------+----------------------+--------+------------+\n");
 
-    for(int i = 0; i < jumlahKasus; i++){
-        printf("| %-4d | %-30s | %-20s | %-8d | %02d-%02d-%04d   |\n",
+    for (int i = 0; i < jumlahKasus; i++)
+    {
+        printf("| %-2d | %-30s | %-20s | %-6d | %02d-%02d-%04d |\n",
                daftarKasus[i].idKasus,
                daftarKasus[i].judul,
                daftarKasus[i].status,
@@ -52,7 +53,7 @@ void tampilData() {
                daftarKasus[i].year);
     }
 
-    printf("+================================================================================================+\n");
+    printf("+----+--------------------------------+----------------------+--------+------------+\n");
 }
 
 void tambahKasus(){
@@ -239,46 +240,62 @@ void sortingMenu(){
     tampilData();
 }
 
-void searchingMenu(){
+void searchingMenu() {
     int pilih;
+
     printf("\n========== MENU PENCARIAN ==========\n");
     printf("[1] Cari berdasarkan ID\n");
     printf("[2] Cari berdasarkan Status\n");
     printf("[3] Cari berdasarkan Tingkat\n");
+    printf("[0] Kembali\n");
     printf("====================================\n");
     printf("Masukkan pilihan: ");
-    scanf("%d", &pilih);
 
-    switch(pilih) {
-        case 1: {
-            int id;
-            printf("Masukkan ID: ");
-            scanf("%d", &id);
-            int found = cariKasusBinary(id);
-            hasilCariKasus(found, id);
-            break;
+    if (scanf(" %d", &pilih) != 1) {
+        printf("Input tidak valid!\n");
+        return;
+    }
+
+    switch (pilih) {
+    case 1:
+    {   
+        int id;
+        printf("Masukkan ID: ");
+        if (scanf(" %d", &id) != 1) {
+            printf("ID harus angka!\n");
+            return;
         }
+        int found = cariKasusBinary(id);
+        hasilCariKasus(found, id);
+        break;
+    }
 
-        case 2: {
-            char status[50];
-            printf("Masukkan Status: ");
-            scanf(" %[^\n]", status);
-            cariKasusByStatus(status);
-            break;
+    case 2:
+    {
+        char status[50];
+        printf("Masukkan Status: ");
+        scanf(" %[^\n]", status);
+        cariKasusByStatus(status);
+        break;
+    }
+
+    case 3:
+    {
+        int tingkat;
+        printf("Masukkan Tingkat (1-3): ");
+        if (scanf(" %d", &tingkat) != 1) {
+            printf("Tingkat harus angka!\n");
+            return;
         }
+        cariKasusByTingkat(tingkat);
+        break;
+    }
 
-        case 3: {
-            int tingkat;
-            printf("Masukkan Tingkat: ");
-            scanf("%d", &tingkat);
-            cariKasusByTingkat(tingkat);
-            break;
-        }
-
-        default:
-            printf("Pilihan tidak valid!\n");
+    default:
+        printf("Pilihan tidak valid!\n");
     }
 }
+
 
 void statistikMenu(){
     statistik();
@@ -288,9 +305,9 @@ void menuUtama(char role[]) {
     int pil;
 
     do {
-        printf("\n=============================================\n");
-        printf("                MENU UTAMA                  \n");
-        printf("=============================================\n");
+        printf("\n+===========================================+\n");
+        printf("|                MENU UTAMA                 |\n");
+        printf("+===========================================+\n");
         printf("| Silakan pilih opsi di bawah:              |\n");
         printf("|-------------------------------------------|\n");
         printf("| [1] Lihat Data Kasus                      |\n");
@@ -310,9 +327,10 @@ void menuUtama(char role[]) {
             printf("| [4] Logout                                |\n");
         }
 
-        printf("=============================================\n");
+        printf("+===========================================+\n");
         printf("Masukkan pilihan: ");
         scanf("%d", &pil);
+        printf("\n");
 
         if(strcmp(role,"admin") == 0){
             switch(pil){
@@ -360,8 +378,9 @@ void tampilMenu() {
         printf("|   [0] Keluar                                    |\n");
         printf("|                                                 |\n");
         printf("+=================================================+\n");
-        printf("\nMasukkan pilihan Anda : \n");
+        printf("\nMasukkan pilihan Anda : ");
         scanf("%d", &pilihan);
+        printf("\n");
 
         switch(pilihan) {
             case 1:
