@@ -15,7 +15,7 @@ struct kasus daftarKasus[100] = {
     {5, "Kanjuruhan Tragedi", "Dalam Investigasi", 3, 7, 12, 2020},
     {6, "Kasus Ijazah Palsu Jokowi", "Hoax - Tidak Valid", 1, 1, 9, 2022},
     {7, "Korupsi BTS Kominfo", "Dalam Proses Hukum", 3, 10, 5, 2023},
-    {8, "Kasus Robot Trading DNA Pro", "Terpecahkan", 2, 15, 3, 2024},
+    {8, "Kasus Robot Trading DNAPro", "Terpecahkan", 2, 15, 3, 2024},
     {9, "Kasus Tambang Ilegal 2023", "Dalam Investigasi", 2, 2, 2, 2022},
     {10, "Korupsi Pertamina 2024", "Dalam Investigasi", 2, 5, 7, 2023},
     {11, "Ryan Pembunuh Berantai", "Terpecahkan", 3, 12, 7, 2008},

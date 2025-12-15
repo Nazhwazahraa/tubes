@@ -101,7 +101,7 @@ void editKasus(){
         printf("| [0] Selesai                     |\n");
         printf("===================================\n");
         printf("Masukkan pilihan : ");
-        scanf("%d", &pilihan);
+        scanf("%d\n", &pilihan);
         getchar();
 
         switch (pilihan) {
@@ -109,21 +109,21 @@ void editKasus(){
                         printf("Judul lama: %s\n", daftarKasus[i].judul);
                         printf("Masukkan judul baru: ");
                         scanf(" %[^\n]", daftarKasus[i].judul);
-                        printf("Judul berhasil diperbarui!\n");
+                        printf("\nJudul berhasil diperbarui!\n");
                         break;
                     }
                     case 2: {
                         printf("Status lama: %s\n", daftarKasus[i].status);
                         printf("Masukkan status baru: ");
                         scanf(" %[^\n]", daftarKasus[i].status);
-                        printf("Status berhasil diperbarui!\n");
+                        printf("\nStatus berhasil diperbarui!\n");
                         break;
                     }
                     case 3: {
                         printf("Tingkat lama: %d\n", daftarKasus[i].tingkat);
                         printf("Masukkan tingkat baru: ");
                         scanf("%d", &daftarKasus[i].tingkat);
-                        printf("Tingkat berhasil diperbarui!\n");
+                        printf("\nTingkat berhasil diperbarui!\n");
                         break;
                     }
                     case 4: {
@@ -138,11 +138,11 @@ void editKasus(){
                             &daftarKasus[i].month,
                             &daftarKasus[i].year);
 
-                        printf("Tanggal berhasil diperbarui!\n");
+                        printf("\nTanggal berhasil diperbarui!\n");
                         break;
                     }
                     case 0:
-                        printf("Edit selesai.\n");
+                        printf("\nEdit selesai.\n");
                         break;
                     default:
                         printf("Pilihan tidak valid! Coba lagi.\n");
@@ -174,11 +174,11 @@ void deleteKasus(){
     }
 
     if (pos != -1) {
-        printf("\n========== Hapus Kasus ==========+\n");
+        printf("\n+========== Hapus Kasus ===========+\n");
         printf("|                                  |\n");
         printf("|     ID Kasus : %d ditemukan!     |\n", daftarKasus[pos].idKasus);
         printf("|                                  |\n");
-        printf("===================================+\n");
+        printf("+==================================+\n");
         printf("Detail Kasus:\n");
         printf("----------------------------------\n");
         printf("Judul   : %s\n", daftarKasus[pos].judul);
