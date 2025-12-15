@@ -10,7 +10,7 @@
 struct kasus daftarKasus[100] = {
     {1, "Bom Bali 2002", "Terpecahkan", 3, 12, 10, 2002},
     {2, "Pembunuhan Munir", "Belum Terpecahkan", 3, 7, 9, 2004},
-    {3, "Kasus Ferdy Sambo (Brigadir J)", "Terpecahkan", 3, 8, 7, 2022},
+    {3, "Kasus Ferdy Sambo", "Terpecahkan", 3, 8, 7, 2022},
     {4, "KM 50 (Laskar FPI)", "Terpecahkan", 3, 1, 10, 2022},
     {5, "Kanjuruhan Tragedi", "Dalam Investigasi", 3, 7, 12, 2020},
     {6, "Kasus Ijazah Palsu Jokowi", "Hoax - Tidak Valid", 1, 1, 9, 2022},
@@ -29,15 +29,15 @@ struct kasus daftarKasus[100] = {
 
 int jumlahKasus = 17;
 
-struct admin adm[8] = {
+struct admin adm[50] = {
     {"detektif1", "12345", "admin"},
     {"detektif2", "54321", "admin"},
-    {"detektif_Kinara", "11111", "admin"},
-    {"detektif_Nazhwa", "22222", "admin"},
-    {"ara", "12345", "user"},
-    {"awa", "54321", "user"},
-    {"user1", "11111", "user"},
-    {"user2", "22222", "user"}
+    {"detektif_kinara", "11111", "admin"},
+    {"detektif_nazhwa", "22222", "admin"},
+    {"polisi1", "12345", "user"},
+    {"polisi2", "54321", "user"},
+    {"polisi_kinara", "11111", "user"},
+    {"polisi_nazhwa", "22222", "user"}
 };
 
-
+int jumlahAkun = 8;

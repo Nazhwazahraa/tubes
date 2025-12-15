@@ -18,6 +18,7 @@ struct admin {
     char password[50];
     char role[20];
 };
-extern struct admin adm[8];
+extern struct admin adm[50];
+extern int jumlahAkun;
 
 #endif

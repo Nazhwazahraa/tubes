@@ -4,6 +4,8 @@
 void tampilMenu();
 void menuUtama(char role[]);
 int login(char role[]);
+int cekUsernameTerpakai(char username[]);
+void registerAkun();
 void tampilData();
 void tambahKasus();
 void editKasus();
@@ -13,5 +15,3 @@ void searchingMenu();
 void statistikMenu();
 
 #endif
-
-

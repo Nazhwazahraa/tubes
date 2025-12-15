@@ -21,7 +21,7 @@ int login(char role[]) {
     scanf("%s", p);
     printf("+======================================+\n");
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < jumlahAkun; i++) {
         if (strcmp(u, adm[i].username) == 0 &&
             strcmp(p, adm[i].password) == 0) {
 
@@ -60,15 +60,15 @@ void tambahKasus(){
     printf("+===============================================+\n");
     printf("|               TAMBAH KASUS                    |\n");
     printf("+===============================================+\n");
-    printf("ID: \n");
+    printf("ID: ");
     scanf("%d",&daftarKasus[jumlahKasus].idKasus);
-    printf("Judul: \n");
+    printf("Judul: ");
     scanf(" %[^\n]", daftarKasus[jumlahKasus].judul);
-    printf("Status: \n");
+    printf("Status: ");
     scanf(" %[^\n]", daftarKasus[jumlahKasus].status);
-    printf("Tingkat: \n");
+    printf("Tingkat: ");
     scanf("%d",&daftarKasus[jumlahKasus].tingkat);
-    printf("Tanggal (dd-mm-yyyy): \n");
+    printf("Tanggal (dd-mm-yyyy): ");
     scanf("%d-%d-%d",&daftarKasus[jumlahKasus].day,&daftarKasus[jumlahKasus].month,&daftarKasus[jumlahKasus].year);
     
     printf("\nKasus sudah berhasil ditambahkan\n");
@@ -316,7 +316,7 @@ void menuUtama(char role[]) {
 
         if(strcmp(role, "admin") == 0){
             printf("|-------------------------------------------|\n");
-            printf("| ADMIN MENU                                |\n");
+            printf("| DETEKTIF MENU                             |\n");
             printf("| [4] Tambah Kasus                          |\n");
             printf("| [5] Edit Kasus                            |\n");
             printf("| [6] Hapus Kasus                           |\n");
@@ -364,6 +364,66 @@ void menuUtama(char role[]) {
              (strcmp(role,"user")==0  && pil!=4) );
 }
 
+int cekUsernameTerpakai(char username[])
+{
+    for (int i = 0; i < jumlahAkun; i++)
+    {
+        if (strcmp(adm[i].username, username) == 0)
+            return 1;
+    }
+    return 0;
+}
+
+void registerAkun() {
+    char username[50], password[50];
+    int identitas;
+
+    if (jumlahAkun >= 50) {
+        printf("\n[!] Kapasitas akun penuh!\n");
+        return;
+    }
+
+    printf("\n+================================================+\n");
+    printf("|              REGISTRASI AKUN BARU              |\n");
+    printf("+================================================+\n");
+
+    printf("Masukkan Username : ");
+    scanf(" %[^\n]", username);
+
+    if (cekUsernameTerpakai(username)) {
+        printf("\n[!] Username sudah terdaftar!\n");
+        return;
+    }
+
+    printf("Masukkan Password : ");
+    scanf("%s", password);
+    printf("+================================================+\n");
+
+    printf("Identitas:\n");
+    printf("[1] Detektif\n");
+    printf("[2] Polisi\n");
+    printf("Pilih : ");
+    scanf("%d", &identitas);
+    printf("+================================================+\n");
+
+    strcpy(adm[jumlahAkun].username, username);
+    strcpy(adm[jumlahAkun].password, password);
+
+    if (identitas == 1)
+        strcpy(adm[jumlahAkun].role, "admin");
+    else if (identitas == 2)
+        strcpy(adm[jumlahAkun].role, "user");
+    else {
+        printf("\n[!] Identitas tidak valid!\n");
+        return;
+    }
+
+    jumlahAkun++;
+
+    printf("\n[!] Akun berhasil dibuat!\n");
+    printf("[!] Silakan login menggunakan akun baru.\n");
+}
+
 void tampilMenu() {
     int pilihan;
     char role[20];
@@ -375,6 +435,7 @@ void tampilMenu() {
         printf("|  Silakan pilih menu:                            |\n");
         printf("|                                                 |\n");
         printf("|   [1] Login                                     |\n");
+        printf("|   [2] Registrasi Akun                           |\n");
         printf("|   [0] Keluar                                    |\n");
         printf("|                                                 |\n");
         printf("+=================================================+\n");
@@ -384,13 +445,19 @@ void tampilMenu() {
 
         switch(pilihan) {
             case 1:
-                if(login(role)) {
+                if (login(role)) {
                     menuUtama(role);
                 }
                 break;
+
+            case 2:
+                registerAkun();
+                break;
+
             case 0:
-                printf("\nTerima kasih sudah menggunakan program!\n");
+                printf("Terima kasih sudah menggunakan program!\n\n");
                 return;
+
             default:
                 printf("\n!! Pilihan tidak tersedia, coba lagi.\n");
         }
